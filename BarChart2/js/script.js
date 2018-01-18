@@ -4,11 +4,11 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart(){
 
     $.ajax({
-        url: "js/data.json",
+        url: "js/mockData.json",
         dataType: "json",
-        success: function(data){
+        success: function(statData){
             var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Year');
+            data.addColumn('number', 'Year');
             data.addColumn('number', 'Births');
             data.addColumn('number', 'Deaths');
             data.addColumn('number', 'Marriages');
