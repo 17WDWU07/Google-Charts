@@ -62,15 +62,39 @@ function drawDashboard(){
                 }
             });
 
+            var tableChart = new google.visualization.ChartWrapper({
+                    chartType: 'Table',
+                    containerId: 'chart2',
+                    options:{
+                        colors: ['black']
+                    }
+            });
+
             var incomeRangeSlider = new google.visualization.ControlWrapper({
                 controlType: 'NumberRangeFilter',
                 containerId: 'control1',
                 options: {
-                    filterColumnLabel: 'Income'
+                    filterColumnLabel: 'Income',
+                    ui: {
+                        labelStacking: "vertical"
+                    }
                 }
             });
 
-            dashboard.bind(incomeRangeSlider, scatterChart);
+            var genderPicker = new google.visualization.ControlWrapper({
+                controlType: 'CategoryFilter',
+                containerId: 'control2',
+                options:{
+                    filterColumnLabel: 'Gender',
+                    ui: {
+                        allowMultiple: false,
+                        allowTyping: false,
+                        labelStacking: "vertical"
+                    }
+                }
+            });
+
+            dashboard.bind([incomeRangeSlider, genderPicker], [scatterChart, tableChart]);
             dashboard.draw(data);
 
 

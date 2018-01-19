@@ -9,7 +9,7 @@
     width: 100vw;
     height: 100vh;
     background-color: #9b59b6;
-    color: white;
+    /* color: white; */
     box-sizing: border-box;
     padding: 1em;
 }
@@ -39,5 +39,5 @@
 }
 
 #controls{
-    background-color: #f39c12;
+    /* background-color: #f39c12; */
 }
