@@ -19,11 +19,14 @@ function drawChart(){
             var options = {
                 title: "Age vs Annual Income",
                 hAxis:{
-                    title: "Age"
+                    title: "Age",
+                    ticks: [15, 40, 60, 80, 100]
                 },
                 vAxis: {
-                    title: "Annual Income"
-                }
+                    title: "Annual Income",
+                    ticks: [25000, 50000, 75000, 100000]
+                },
+                legend: 'none'
             }
 
             var chart = new google.visualization.ScatterChart(document.getElementById('chartLocation'));
@@ -32,6 +35,7 @@ function drawChart(){
 
             function clickEvent(){
                 var tableRow = chart.getSelection()[0].row;
+                chart.setSelection();
                 var personData = dataFromServer[tableRow];
                 if(personData){
                     document.getElementById('name').innerText = personData.first_name + " " + personData.last_name;
